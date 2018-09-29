@@ -29,7 +29,9 @@ const processData = (map) => {
         path: [{x, y, value: map[y][x]}]
       };
 
-      bestCoord = getBestCoord([processCoord(x, y, map, currentCoord), bestCoord]);
+      if(bestCoord.drop < map[y][x]) {
+        bestCoord = getBestCoord([processCoord(x, y, map, currentCoord), bestCoord]);
+      }
     }
   }
 
